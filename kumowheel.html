@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>go/kumowheel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <style>
+
+  h1 {
+    text-align: left;
+    font-size: 56px;
+    margin-top: 4px;
+    margin-left: 4px;
+  }
+
+  p {
+    text-align: left;
+    font-size: 24px;
+    margin-top: 4px;
+    margin-left: 4px;
+  }
+
+  textarea {
+    text-align: left;
+    font-size: 18px;
+    margin-top: 4px;
+    margin-left: 4px;
+  }
+
+  div {
+    text-align: left;
+    font-size: 28px;
+    margin-top: 4px;
+    margin-left: 4px;
+  }
+
+  .btn {
+    border: 2px solid;
+    background-color: inherit;
+    padding: 8px 12px;
+    font-size: 18px;
+    margin-bottom: 4px;
+    cursor: pointer;
+    display: inline-block;
+  }
+
+  .btn:hover {
+    border: 2px solid;
+    background-color: lightgray;
+    padding: 8px 12px;
+    font-size: 18x;
+    margin-bottom: 4px;
+    cursor: pointer;
+    display: inline-block;
+  }
+
+</style>
+</head>
+
+<body>
+
+  <h1>Kumo Wheel of Fortune</h1>
+
+  <p>Enter the candidates (separated by anything):</p>
+  <table>
+    <tr>
+    <td><textarea id=candidates name="kumowheelcandidates" 
+      cols="40" rows="4"
+      placeholder="Bill
+Judith Wolfgang Stefan
+Heike Rodrigo Julio"></textarea>
+    </td>
+    <td><button class="btn" onclick="spinthewheel()">Spin the wheel!</button></td>
+    </tr>
+  </table>
+
+  <div id="winner"></div>
+
+<script>
+
+function spinthewheel() {
+    const candidates = parseTextarea(document.getElementById("candidates").value);
+    const winner=randomChoice(candidates);
+    document.getElementById("winner").innerHTML = "And the winner is: <b>" + winner + "</b>"
+}
+
+function parseTextarea(textarea) {
+  return textarea
+    .split(/[\s,]+/)
+    .map((item) => item.trim())
+    .filter(Boolean);
+}
+
+function randomChoice(list) {
+  return list[Math.floor(Math.random() * list.length)];
+}
+
+</script>
+</body>
+</html>
