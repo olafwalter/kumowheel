@@ -60,12 +60,12 @@
 
 <body>
 
-  <h1>Kumo Wheel of Fortune</h1>
+  <h1>Kumo Wheel of Names</h1>
 
-  <p>Enter the candidates (separated by anything):</p>
+  <p>Enter the names (separated by anything):</p>
   <table>
     <tr>
-    <td><textarea id=candidates name="kumowheelcandidates" 
+    <td><textarea id=names name="kumowheelnames"
       cols="40" rows="4"
       placeholder="Bill
 Judith Wolfgang Stefan
@@ -80,9 +80,9 @@ Heike Rodrigo Julio"></textarea>
 <script>
 
 function spinthewheel() {
-    const candidates = parseTextarea(document.getElementById("candidates").value);
-    const winner=randomChoice(candidates);
-    document.getElementById("winner").innerHTML = "And the winner is: <b>" + winner + "</b>"
+    const names = parseTextarea(document.getElementById("names").value);
+    const winner=randomChoice(names);
+    document.getElementById("winner").innerHTML = "And the winner is: 🎊 <b>" + winner + " </b>🎉"
 }
 
 function parseTextarea(textarea) {
